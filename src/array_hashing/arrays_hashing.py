@@ -42,6 +42,25 @@ def two_sum(nums: list[int], target: int) -> list[int]:
 
     return []
 
+class TinyUrl:
+    def __init__(self):
+        self.cache = {}
+        self.index = 1
+
+    def encode(self, longUrl: str) -> str:
+        """Encodes a URL to a shortened URL.
+        """
+        shortUrl = f"https://tinyurl.com/{self.index}"
+        self.cache[shortUrl] = longUrl
+        self.index += 1
+        return shortUrl
+        
+
+    def decode(self, shortUrl: str) -> str:
+        """Decodes a shortened URL to its original URL.
+        """
+        return self.cache[shortUrl]
+
 
 
 
