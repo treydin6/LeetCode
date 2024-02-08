@@ -42,6 +42,17 @@ def two_sum(nums: list[int], target: int) -> list[int]:
 
     return []
 
+# 344.
+def reverse_string(s: list[str]) -> list[str]:
+    lp = 0 
+    rp = len(s) - 1
+    while lp < rp:
+        s[lp], s[rp] = s[rp], s[lp]
+        lp += 1
+        rp -= 1
+    return s
+
+
 class TinyUrl:
     def __init__(self):
         self.cache = {}
@@ -107,6 +118,17 @@ class TestFuncs(unittest.TestCase):
         expexted_three = [0,1]
         res_three = two_sum(two_sum_arr_three, target_three)
         self.assertCountEqual(expexted_three, res_three)
+
+    def test_reverse_string(self):
+        arr_one = ["h","e","l","l","o"]
+        expected_one = ["o","l","l","e","h"]
+        res_one = reverse_string(arr_one)
+        self.assertEqual(expected_one, res_one)
+
+        arr_two = ["H","a","n","n","a","h"]
+        expected_two = ["h","a","n","n","a","H"]
+        res_two = reverse_string(arr_two)
+        self.assertEqual(expected_two, res_two)
 
 
 
