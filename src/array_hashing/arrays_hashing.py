@@ -52,6 +52,15 @@ def reverse_string(s: list[str]) -> list[str]:
         rp -= 1
     return s
 
+# 268. Missing Number
+def missing_number(nums: list[int]) -> int:
+    l = len(nums) 
+    total = (l * (l + 1)) // 2
+    for num in nums:
+        total -= num
+
+    return total
+
 
 class TinyUrl:
     def __init__(self):
@@ -130,6 +139,21 @@ class TestFuncs(unittest.TestCase):
         res_two = reverse_string(arr_two)
         self.assertEqual(expected_two, res_two)
 
+    def test_missing_number(self):
+        arr_one = [3,0,1]
+        expexted_one = 2
+        res_one = missing_number(arr_one)
+        self.assertEqual(expexted_one, res_one)
+
+        arr_two = [0,1]
+        expexted_two = 2
+        res_two = missing_number(arr_two)
+        self.assertEqual(expexted_two, res_two)
+
+        arr_three = [9,6,4,2,3,5,7,0,1]
+        expexted_three = 8
+        res_three = missing_number(arr_three)
+        self.assertEqual(expexted_three, res_three)
 
 
 if __name__ == '__main__':
